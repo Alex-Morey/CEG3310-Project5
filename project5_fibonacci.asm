@@ -25,6 +25,8 @@ MAIN
     ST R0, FIB_RESULT      ; Save returned result
 
     ; Print F(n) =
+    LD R0, NEWLINE         ; Load newline character
+    OUT                    ; Move to next line
     LEA R0, PREFIX         ; Print "F("
     PUTS
     LD R0, INPUT_N         ; Load original n
@@ -106,6 +108,7 @@ FIB_DONE
 STACK_START     .FILL x4000
 NEG_ASCII_ZERO  .FILL #-48
 ASCII_ZERO      .FILL #48
+NEWLINE .FILL x000A     ; ASCII line feed
 PROMPT          .STRINGZ "Please enter a number n: "
 PREFIX          .STRINGZ "F("
 MIDDLE          .STRINGZ ") = "
